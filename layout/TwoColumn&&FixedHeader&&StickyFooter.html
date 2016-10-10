@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>两栏 等高 Header Footer</title>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        #left {
+            background-color: green;
+            float: left;
+            width: 220px;
+            margin-right: -100%;
+            margin-bottom: -20000px;
+            padding-bottom: 20000px;
+        }
+
+        #content {
+            /*float: left;*/
+            width: 100%;
+        }
+
+        #contentInner {
+            margin-left: 220px;
+            background-color: orange;
+            margin-bottom: -20000px;
+            padding-bottom: 20000px;
+        }
+
+        #container {
+            overflow: hidden;
+            min-height: 100%;
+            box-sizing: border-box;
+            padding-bottom: 30px;
+            margin-bottom: -30px;
+            padding-top: 30px;
+        }
+
+        #footer{
+            position: relative;
+            height: 30px;
+            background: gray;
+        }
+        #header{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: gray;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    Header
+</div>
+<div id="container">
+    <div id="left">
+        Left Sidebar
+    </div>
+    <div id="content">
+        <div id="contentInner">
+            <table>
+                <tr>
+                    <td>
+                    <pre>
+&lt;div id="container"&gt;
+    &lt;div id="left"&gt;
+        Left Sidebar
+    &lt;/div&gt;
+    &lt;div id="content"&gt;
+        &lt;div id="contentInner"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                    </pre>
+                    </td>
+                    <td>
+                    <pre>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        #left {
+            background-color: green;
+            float: left;
+            width: 220px;
+            margin-right: -100%;
+            margin-bottom: -20000px;
+            padding-bottom: 20000px;
+        }
+
+        #content {
+            /*float: left;*/
+            width: 100%;
+        }
+
+        #contentInner {
+            margin-left: 220px;
+            background-color: orange;
+            margin-bottom: -20000px;
+            padding-bottom: 20000px;
+        }
+
+        #container {
+            overflow: hidden;
+            min-height: 100%;
+            box-sizing: border-box;
+            padding-bottom: 30px;
+            margin-bottom: -30px;
+            padding-top: 30px;
+        }
+
+        #footer{
+            position: relative;
+            height: 30px;
+            background: gray;
+        }
+        #header{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: gray;
+        }
+                    </pre>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="footer">
+Bottom
+</div>
+</body>
+</html>
