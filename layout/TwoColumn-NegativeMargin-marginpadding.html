@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>两栏布局 负margin+等高</title>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        #left {
+            background-color: green;
+            float: left;
+            width: 220px;
+            margin-right: -100%;
+            margin-bottom: -20000px;
+            padding-bottom: 20000px;
+        }
+
+        #content {
+            /*float: left;*/
+            width: 100%;
+        }
+
+        #contentInner {
+            margin-left: 220px;
+            background-color: orange;
+            margin-bottom: -20000px;
+            padding-bottom: 20000px;
+        }
+
+        #container {
+            overflow: hidden;
+            min-height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="left">
+        Left Sidebar
+    </div>
+    <div id="content">
+        <div id="contentInner">
+            <table>
+                <tr>
+                    <td>
+                    <pre>
+&lt;div id="container"&gt;
+    &lt;div id="left"&gt;
+        Left Sidebar
+    &lt;/div&gt;
+    &lt;div id="content"&gt;
+        &lt;div id="contentInner"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                    </pre>
+                    </td>
+                    <td>
+                    <pre>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            overflow: hidden;
+        }
+        #left {
+            background-color: green;
+            float: left;
+            width: 220px;
+            margin-right: -100%;
+            margin-bottom: -20000px;
+            padding-bottom: 20000px;
+        }
+
+        #content {
+            /*float: left;*/
+            width: 100%;
+        }
+
+        #contentInner {
+            margin-left: 220px;
+            background-color: orange;
+            margin-bottom: -20000px;
+            padding-bottom: 20000px;
+        }
+        #container {
+            overflow: hidden;
+            min-height: 100%;
+        }
+                    </pre>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
