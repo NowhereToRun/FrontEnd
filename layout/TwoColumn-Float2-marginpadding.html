@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>两栏布局-float2</title>
+    <style>
+        html,body {
+            margin: 0;
+            height: 100%;
+        }
+
+        .container {
+            overflow: hidden;
+            min-height: 100%;
+        }
+
+        .left {
+            float: left;
+            width: 200px;
+            background-color: lightskyblue;
+            margin-bottom: -200001px;
+            padding-bottom: 200001px;
+        }
+
+        .main {
+            background-color: greenyellow;
+            overflow: hidden;
+            margin-bottom: -200001px;
+            padding-bottom: 200001px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="left">
+        <p>left</p>
+        <p>left</p>
+        <p>left</p>
+    </div>
+    <div class="main">
+        <h4>布局要点</h4>
+        <ol>
+            <li>利用超大padding和-margin实现等高布局，这样等高的缺点是如果为他们设置下边框将会无法显示</li>
+            <li>左侧float:left</li>
+            <li>右侧overflow:hidden或者margin-left:200px防止内容溢出，推荐使用overflow:hidden因为同时可以创建BFC防止边界塌陷</li>
+            <li>注意右侧不需要设置宽度</li>
+        </ol>
+        <table>
+            <tr>
+                <td>
+                    <pre>
+        html,body {
+            margin: 0;
+            height: 100%;
+        }
+
+        .container {
+            overflow: hidden;
+            min-height: 100%;
+        }
+
+        .left {
+            float: left;
+            width: 200px;
+            background-color: lightskyblue;
+            margin-bottom: -200001px;
+            padding-bottom: 200001px;
+        }
+
+        .main {
+            background-color: greenyellow;
+            overflow: hidden;
+            margin-bottom: -200001px;
+            padding-bottom: 200001px;
+        }
+                    </pre>
+                </td>
+                <td>
+                    <pre>
+                        &lt;div class="container"&gt;
+                            &lt;div class="left"&gt;&lt;/div&gt;
+                            &lt;div class="main"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                    </pre>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

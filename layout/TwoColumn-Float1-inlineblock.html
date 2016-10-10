@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>两栏布局-float1</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        #wrapper {
+            display: inline-block;
+            border-left: 200px solid #d4c376;
+            background: #ffe3a6;
+            /*vertical-align: bottom;*/
+            min-height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #sidebar {
+            float: left;
+            width: 200px;
+            margin-left: -200px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <div id="sidebar">
+        <p>Left</p>
+
+        <p>侧边栏显示在wrapper的边框上</p>
+
+        <p>Left</p>
+
+        <p>Left</p>
+
+        <p>Left</p>
+
+        <p>Left</p>
+
+        <p>Left</p>
+
+        <p>Left</p>
+
+        <p>Left</p>
+
+        <p>Left</p>
+    </div>
+    <div id="main">
+        <h3>布局要点</h3>
+        <ol>
+            <li>侧边栏和主内容之外使用wrapper， display:inline-block</li>
+            <li>侧边栏利用float:left到wrapper的边框上实现两栏布局</li>
+            <li>main在wrapper的内部，所以不需要再为main设置margin-left或者overflow:hidden防止main的高度比left高时的内容溢出到左侧下方</li>
+            <li>等高布局一般都是为了显示背景颜色,利用侧边栏和主内容外层的wrapper实现等高</li>
+            <li>为了占满全屏 给wrapper设置了min-height 100%</li>
+        </ol>
+        <h3>wrapper display:inline-block的原因</h3>
+        <ol>
+            <li>创建BFC，清除内部浮动，让float:left的侧边栏能撑开wrapper的高度</li>
+            <li>不能使用overflow:hidden或者auto，这样会使侧边栏无法显示</li>
+        </ol>
+        <h4>此外wrapper需注意</h4>
+        <ol>
+            <li>因为是inline-block，所以不会自动占满整行。如果内部没有能占满整行的元素就会有显示问题（一般不会出现）。为了显示效果需设置width:100%和box-sizing:border-box</li>
+            <li>此外一种方法是直接给body设置background-color，这个color的颜色就直接显示在了main的内容的位置。从视觉上不会再有问题</li>
+        </ol>
+        <table>
+            <tr>
+                <td>
+                    <pre>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        #wrapper {
+            display: inline-block;
+            border-left: 200px solid #d4c376;
+            background: #ffe3a6;
+            /*vertical-align: bottom;*/
+            min-height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #sidebar {
+            float: left;
+            width: 200px;
+            margin-left: -200px;
+        }
+                    </pre>
+                </td>
+                <td>
+                    <pre>
+                        &lt;div id="wrapper"&gt;
+                            &lt;div id="sidebar"&gt;&lt;/div&gt;
+                            &lt;div id="main"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                    </pre>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

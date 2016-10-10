@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>两栏布局 负margin+等高</title>
+    <style type="text/css">
+        html, body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #container1 {
+            float: left;
+            width: 100%;
+            overflow: hidden;
+            /*position: relative;*/
+            background-color: #dbddbb;
+        }
+
+        #container {
+            background-color: orange;
+            width: 100%;
+            float: left;
+            margin-left:220px;
+/*            position: relative;
+            left: 220px; */
+        }
+
+        #left {
+            float: left;
+            margin-right: -100%;
+            margin-left: -220px; /* 宽度大小等与边栏宽度大小*/
+            width: 220px;
+        }
+
+        #content {
+            float: left;
+            width: 100%;
+            margin-left: -220px; /* 宽度大小等与边栏宽度大小*/
+        }
+
+        #contentInner {
+            margin-left: 220px; /* 宽度大小等与边栏宽度大小*/
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div id="container1">
+    <div id="container">
+        <div id="left">
+            <p>left</p>
+        </div>
+        <div id="content">
+            <div id="contentInner">
+                <h2>利用两层wrapper实现视觉上的等高（背景颜色）</h2>
+                <ol>
+                    <li>最外层显示的是左边栏的背景颜色</li>
+                    <li>第二层显示的是主要内容的背景颜色</li>
+                    <li>为了能把左边栏的颜色空出，第二层要相对定位，向右偏移左边栏的宽度。也可以直接margin-left:左边栏的宽度</li>
+                    <li>剩下的布局就和利用负边距布局一样，只是为了恢复到正常位置（因为第二层右移了），left和content需要向左偏移同样的宽度</li>
+                    <li>contentInner不需要改变</li>
+                    <li>最外层需要overflow:hidden来消除溢出的宽度</li>
+                    <li>container1 和 container float:left的原因是为了清除内部浮动。 其中内层（container）不能使用overflow:hidden代替，因为左边栏要利用负边距移动出去</li>
+                </ol>
+
+                <table>
+                    <tr>
+                        <td>
+                            <pre>
+        html, body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #container1 {
+            float: left;
+            width: 100%;
+            overflow: hidden;
+            /*position: relative;*/
+            background-color: #dbddbb;
+        }
+
+        #container {
+            background-color: orange;
+            width: 100%;
+            float: left;
+            margin-left:220px;
+/*            position: relative;
+            left: 220px; */
+        }
+
+        #left {
+            float: left;
+            margin-right: -100%;
+            margin-left: -220px; /* 宽度大小等与边栏宽度大小*/
+            width: 220px;
+        }
+
+        #content {
+            float: left;
+            width: 100%;
+            margin-left: -220px; /* 宽度大小等与边栏宽度大小*/
+        }
+
+        #contentInner {
+            margin-left: 220px; /* 宽度大小等与边栏宽度大小*/
+            overflow: hidden;
+        }
+                            </pre>
+                        </td>
+                        <td>
+                            <pre>
+&lt;div id="container1"&gt;
+    &lt;div id="container"&gt;
+        &lt;div id="left"&gt;
+            Left Sidebar
+        &lt;/div&gt;
+        &lt;div id="content"&gt;
+            &lt;div id="contentInner"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                            </pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
