@@ -1,16 +1,12 @@
 var Wi = [ 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2, 1 ];    // 加权因子
 var ValideCode = [ 1, 0, 10, 9, 8, 7, 6, 5, 4, 3, 2 ];            // 身份证验证位值.10代表X
 function IdCardValidate(idCard) {
-    idCard = trim(idCard.replace(/ /g, ""));               //去掉字符串头尾空格
+    idCard = idCard.replace(/ /g, "");               //去掉字符串所有空格
     if (idCard.length == 15) {
         return isValidityBrithBy15IdCard(idCard);       //进行15位身份证的验证
     } else if (idCard.length == 18) {
         var a_idCard = idCard.split("");                // 得到身份证数组
-        if(isValidityBrithBy18IdCard(idCard)&&isTrueValidateCodeBy18IdCard(a_idCard)){   //进行18位身份证的基本验证和第18位的验证
-            return true;
-        }else {
-            return false;
-        }
+        return isValidityBrithBy18IdCard(idCard)&&isTrueValidateCodeBy18IdCard(a_idCard);//进行18位身份证的基本验证和第18位的验证
     } else {
         return false;
     }
@@ -28,16 +24,17 @@ function isTrueValidateCodeBy18IdCard(a_idCard) {
     for ( var i = 0; i < 17; i++) {
         sum += Wi[i] * a_idCard[i];            // 加权求和
     }
-    valCodePosition = sum % 11;                // 得到验证码所位置
+    var valCodePosition = sum % 11;                // 得到验证码所位置
     if (a_idCard[17] == ValideCode[valCodePosition]) {
         return true;
     } else {
         return false;
     }
 }
+
 /**
  * 验证18位数身份证号码中的生日是否是有效生日
- * @param idCard 18位书身份证字符串
+ * @param idCard18 18位身份证字符串
  * @return
  */
 function isValidityBrithBy18IdCard(idCard18){
@@ -54,6 +51,7 @@ function isValidityBrithBy18IdCard(idCard18){
         return true;
     }
 }
+
 /**
  * 验证15位数身份证号码中的生日是否是有效生日
  * @param idCard15 15位书身份证字符串
@@ -72,8 +70,4 @@ function isValidityBrithBy15IdCard(idCard15){
     }else{
         return true;
     }
-}
-//去掉字符串头尾空格
-function trim(str) {
-    return str.replace(/(^\s*)|(\s*$)/g, "");
 }
