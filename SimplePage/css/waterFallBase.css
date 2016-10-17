@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#main {
+    position: relative;
+}
+
+.box {
+    padding: 10px 0 0 10px; /*为了方便计算宽度，使用了padding而不是margin处理div间距*/
+    float: left;
+}
+
+.pic {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ccc;
+}
+
+.pic img {
+    width: 165px;
+    height: auto;
+    /*display block清除img和div中间的间隙，还有其他的方法*/
+    display: block;
+}
