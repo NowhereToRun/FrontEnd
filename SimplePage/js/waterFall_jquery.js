@@ -30,7 +30,7 @@ function checkScrollSlide() {
     var lastBoxDis = $lastBox.offset().top + Math.floor($lastBox.outerHeight() / 2);
     var scrollTop = $(window).scrollTop();
     var documentH = $(window).height();
-    return (lastBoxDis < scrollTop + documentH) ? true : false;
+    return lastBoxDis < scrollTop + documentH;
 }
 
 function waterfall() {
