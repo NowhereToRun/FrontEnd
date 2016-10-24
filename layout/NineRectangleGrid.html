@@ -1,0 +1,85 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>九宫格</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            text-align: center;
+            min-width: 960px;
+        }
+
+        .father {
+            width: 170px;
+            margin: auto;
+            height: 200px;
+        }
+
+        .child {
+            float: left;
+            width: 50px;
+            height: 50px;
+            border: solid 5px #000;
+            line-height: 50px;
+            text-align: center;
+            margin: 0 -5px -5px 0;
+            z-index: 1;
+            position: relative;
+        }
+
+        .child:hover {
+            border-color: red;
+            z-index: 2;
+        }
+
+        #grid > ol {
+            list-style: outside none none;
+            margin: 0 auto;
+            max-width: 1160px;
+            overflow: hidden;
+            /*width: calc(100% - 2 * 40px);*/
+        }
+
+        #grid > ol > li {
+            border: 1px solid #d8d8d8;
+            box-sizing: border-box;
+            float: left;
+            height: 163px;
+            margin: 10px;
+            opacity: 1;
+            position: relative;
+            width: calc((100% - 80px) / 4);
+    </style>
+</head>
+<body>
+<div class="father">
+    <div class="child">1</div>
+    <div class="child">2</div>
+    <div class="child">3</div>
+    <div class="child">4</div>
+    <div class="child">5</div>
+    <div class="child">6</div>
+    <div class="child">7</div>
+    <div class="child">8</div>
+    <div class="child">9</div>
+</div>
+
+<div id="grid">
+    <ol>
+        <li title="火狐中文网">
+        <li title="百度">
+        <li title="新浪">
+        <li title="优酷">
+        <li title="天猫精选">
+        <li title="京东商城">
+        <li title="1号店">
+        <li title="淘宝">
+    </ol>
+</div>
+
+</body>
+</html>
